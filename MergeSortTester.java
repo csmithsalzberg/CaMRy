@@ -14,12 +14,12 @@
   O(n) if one element in array
 
   Mean execution times for dataset of size n:
-  Batch size: <# of times each dataset size was run>
-  n=1       time: 
-  n=10      time: 
-  n=100     time: 
+  Batch size: 100
+  n=1       time: 4500 ns
+  n=10      time: 10000 ns
+  n=100     time: 32500 ns
   ...
-  n=<huge>  time: 
+  n=10000   time: 1900000 ns
 
   ANALYSIS:
   <INSERT YOUR RESULTS ANALYSIS HERE>
@@ -36,22 +36,31 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-	int n = 100; // number of elements to be generated
+	int n = 10000;     // number of elements to be generated
+	int batchSize = 100;  // number of times to repeat operation
+	double sum = 0;       // for calculating average of runtime
 
-	// generate array with random ints from 0 to n
-	int[] arr = new int[n];
-	for (int i = 0; i < n; i++) {
-	    arr[i] = (int)(Math.random()*n);
+	// repeat batchSize times
+	for (int times = 0; times < batchSize; times++) {
+	
+	    // generate array with random ints from 0 to n
+	    int[] arr = new int[n];
+	    for (int i = 0; i < n; i++) {
+		arr[i] = (int)(Math.random()*n);
+	    }
+
+	    // begin sort
+	    long startTime = System.nanoTime();
+	    MergeSort.sort(arr);
+      	    long elapsedTime = System.nanoTime() - startTime;
+
+	    System.out.print( "Runtime: " );
+	    System.out.println( elapsedTime );
+	    sum += elapsedTime;
 	}
 
-	// begin sort
-	long startTime = System.currentTimeMillis();
-	MergeSort.sort(arr);
-	long endTime = System.currentTimeMillis();
-	long elapsedTime = endTime - startTime;
-
-	System.out.print( "Runtime: " );
-	System.out.println( elapsedTime );
+	// print average
+	System.out.println( sum / batchSize );
         	
     }//end main
 
