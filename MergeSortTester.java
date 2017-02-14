@@ -36,8 +36,8 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-	int n = 10000;     // number of elements to be generated
-	int batchSize = 100;  // number of times to repeat operation
+	int n = 1000;     // number of elements to be generated
+	int batchSize = 20;  // number of times to repeat operation
 	double sum = 0;       // for calculating average of runtime
 
 	// repeat batchSize times
@@ -48,15 +48,21 @@ public class MergeSortTester
 	    for (int i = 0; i < n; i++) {
 		arr[i] = (int)(Math.random()*n);
 	    }
+	    /* int[] arr2 = new int[n];
+	    for (int i = 0; i < n; i++) {
+		arr2[i] = arr[i];
+		}*/
 
 	    // begin sort
 	    long startTime = System.nanoTime();
 	    MergeSort.sort(arr);
       	    long elapsedTime = System.nanoTime() - startTime;
-
-	    System.out.print( "Runtime: " );
+	    
+	    System.out.print( "Runtime merge " + (times+1) +" : " );
 	    System.out.println( elapsedTime );
 	    sum += elapsedTime;
+	    //  long startSelect = System.nanoTime();
+	    // SelectionSort.
 	}
 
 	// print average
