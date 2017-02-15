@@ -7,7 +7,7 @@ The merge sort algorithm is a divide-and-conquer method utilizing recursion to s
 ##**Big O Classification**
 O(nlogn) for most cases.
 
-O(n) if one element in array.
+O(n) if one element in array. HOWEVER: this violates the precondition of an unsorted array, as a one item array is always sorted.
 
 ##**Data Gathered**
 Mean execution times for dataset of size n:
