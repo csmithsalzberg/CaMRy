@@ -27,7 +27,7 @@
 
 public class MergeSortTester 
 {
-
+    int[] nums = {1,10,100,1000,10000,100000,100000,1000000,10000000,200000000,300000000}
     /******************************
      * execution time analysis 
      * <INSERT YOUR DESCRIPTION HERE OF 
@@ -36,8 +36,9 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-	int n = 1000;     // number of elements to be generated
-	int batchSize = 20;  // number of times to repeat operation
+    for (int i=0; i<nums.length; i++){
+	int n = nums[i];     // number of elements to be generated
+	int batchSize = 100;  // number of times to repeat operation
 	double sum = 0;       // for calculating average of runtime
 
 	// repeat batchSize times
@@ -68,6 +69,7 @@ public class MergeSortTester
 	// print average
 	System.out.println( sum / batchSize );
         	
+    }
     }//end main
 
 }//end class
