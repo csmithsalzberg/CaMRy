@@ -43,8 +43,8 @@ n=7500000  time: 2176.85 ms
 
 n=10000000 time: 2732.56 ms
 
-##**Interpreting Graphs**
-On [this](https://docs.google.com/spreadsheets/d/1di-cIgPVuNcyNbaXlrJYO38TMVXGVqyL1_0YpZwaboE/pubhtml#) spreadsheet, we have graphed a O(n) and O(nlogn) run times. It is clear from the expected runtime graph that a linear runtime is faster than a loglinear one, which is much faster than a quadratic runtime. Therefore, we expected a similar result from our tests. When graphed, our results matched what we expected: quadratic by far the slowest with loglinear next, and linear runtime the fastest. One interesting idea to note from the graph of our results is that the linear runtime appears to be a constant of 0. However, when multiplied by a constant, a more linear graph is seen (we can do this because O(n) times O(1) = O(n) ). 
+##**Analysis**
+On [this spreadsheet](https://docs.google.com/spreadsheets/d/1di-cIgPVuNcyNbaXlrJYO38TMVXGVqyL1_0YpZwaboE/pubhtml#), we have graphed a O(n) and O(nlogn) run times. It is clear from the expected runtime graph that a linear runtime is faster than a loglinear one, which is much faster than a quadratic runtime. Therefore, we expected a similar result from our tests. When graphed, our results matched what we expected: quadratic by far the slowest with loglinear next, and linear runtime the fastest. One interesting idea to note from the graph of our results is that the linear runtime appears to be a constant of 0. However, when multiplied by a constant, a more linear graph is seen (we can do this because O(n) times O(1) = O(n) ). 
 
 ##**Conclusion**##
 Our results show clearly that the graph of the merge sort reuntime is a translation of a loglinear graph, and therefore the algorithm is O(nlogn).
