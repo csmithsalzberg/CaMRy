@@ -27,7 +27,9 @@
 
 public class MergeSortTester 
 {
-    int[] nums = {1,10,100,1000,10000,100000,100000,1000000,10000000,200000000,300000000}
+    
+    public static final int[] NUMS = {1,10,100,1000,10000,100000,100000,1000000,10000000,200000000,300000000};
+	
     /******************************
      * execution time analysis 
      * <INSERT YOUR DESCRIPTION HERE OF 
@@ -36,40 +38,40 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-    for (int i=0; i<nums.length; i++){
-	int n = nums[i];     // number of elements to be generated
-	int batchSize = 100;  // number of times to repeat operation
-	double sum = 0;       // for calculating average of runtime
-
-	// repeat batchSize times
-	for (int times = 0; times < batchSize; times++) {
+	String retStr = "";
 	
-	    // generate array with random ints from 0 to n
-	    int[] arr = new int[n];
-	    for (int i = 0; i < n; i++) {
-		arr[i] = (int)(Math.random()*n);
-	    }
-	    /* int[] arr2 = new int[n];
-	    for (int i = 0; i < n; i++) {
-		arr2[i] = arr[i];
-		}*/
+	for (int j = 0; j < nums.length; j++){
+	    int n = NUMS[j];        // number of elements to be generated
+	    int batchSize = 1000;   // number of times to repeat operation
+	    double sum = 0;         // for calculating average of runtime
 
-	    // begin sort
-	    long startTime = System.nanoTime();
-	    MergeSort.sort(arr);
-      	    long elapsedTime = System.nanoTime() - startTime;
+	    // repeat batchSize times
+	    for (int times = 0; times < batchSize; times++) {
+	
+		// generate array with random ints from 0 to n
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+		    arr[i] = (int)(Math.random()*n);
+		}
+
+		// begin sort
+		long startTime = System.currentTimeMillis();
+		MergeSort.sort(arr);
+		long elapsedTime = System.currentTimeMillis() - startTime;
 	    
-	    System.out.print( "Runtime merge " + (times+1) +" : " );
-	    System.out.println( elapsedTime );
-	    sum += elapsedTime;
-	    //  long startSelect = System.nanoTime();
-	    // SelectionSort.
+		System.out.print( "Runtime merge " + (times+1) + " : " );
+		System.out.println( elapsedTime );
+		sum += elapsedTime;
+	    }
+
+	    // print average
+	    retStr += NUMS[j] + "," + sum / batchSize + ",\n";
+	    System.out.println( sum / batchSize );
+	    
 	}
 
-	// print average
-	System.out.println( sum / batchSize );
-        	
-    }
+	System.out.println( retStr );
+	
     }//end main
 
 }//end class
