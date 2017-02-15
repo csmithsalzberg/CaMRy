@@ -31,7 +31,9 @@
   n=10000000 time: 2732.56 ms
 
   ANALYSIS:
-  <INSERT YOUR RESULTS ANALYSIS HERE>
+  MergeSort seems to run at linear logarithmic time. Most of the data points,
+  when plotted onto an Excel sheet and made into graphs, showed the strongest
+  correlation to a linear logarithmic runtime.
   ======================================*/
 
 public class MergeSortTester 
