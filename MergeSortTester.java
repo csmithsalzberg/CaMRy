@@ -40,7 +40,7 @@ public class MergeSortTester
     {
 	String retStr = "";
 	
-	for (int j = 0; j < nums.length; j++){
+	for (int j = 0; j < NUMS.length; j++){
 	    int n = NUMS[j];        // number of elements to be generated
 	    int batchSize = 1000;   // number of times to repeat operation
 	    double sum = 0;         // for calculating average of runtime
