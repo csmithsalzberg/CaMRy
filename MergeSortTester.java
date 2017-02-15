@@ -37,8 +37,9 @@
 public class MergeSortTester 
 {
     
-    public static final int[] NUMS = {1,10,100,1000,5000,10000,50000,100000,500000,1000000,2500000,5000000,7500000,10000000};
+    // public static final int[] NUMS = {1,10,100,1000,5000,10000,50000,100000,500000,1000000,2500000,5000000,7500000,10000000};
 
+    public static final int[] NUMS = {100000};
 	
     /******************************
      * execution time analysis 
@@ -71,11 +72,23 @@ public class MergeSortTester
 		*/
 
 		// O(n) operation for time reference
+		/*
 		long startTime = System.currentTimeMillis();
 	        for (int t = 0; t < n; t++) {
 		    arr[t]++;
 		}
 		long elapsedTime = System.currentTimeMillis() - startTime;
+		*/
+
+		// O(n^2) operation for time reference
+		long startTime = System.currentTimeMillis();
+	        for (int t = 0; t < n; t++) {
+		    for (int u = 0; u < n; u++) {
+			arr[u]++;
+		    }
+		}
+		long elapsedTime = System.currentTimeMillis() - startTime;
+		
 	    
 		System.out.print( "Runtime merge " + (times+1) + " : " );
 		System.out.println( elapsedTime );
